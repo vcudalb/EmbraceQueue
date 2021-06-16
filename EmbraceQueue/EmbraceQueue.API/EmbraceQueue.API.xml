@@ -1,0 +1,912 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EmbraceQueue.API</name>
+    </assembly>
+    <members>
+        <member name="T:EmbraceQueue.API.DependencyInjection">
+            <summary>
+            Dependecy injection for API
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.DependencyInjection.AddCustomizedIdentity(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings)">
+            <summary>
+            Customized identity
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <param name="jwtSettings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.DependencyInjection.AddCustomizedDataStore(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Customized data store
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.DependencyInjection.UseCustomizedIdentity(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            UseCustomizedIdentity
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.IdentityService">
+            <summary>
+            Identity service
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.IdentityService.#ctor(Microsoft.AspNetCore.Identity.UserManager{EmbraceQueue.Infrastructure.Entities.User},Microsoft.AspNetCore.Identity.RoleManager{EmbraceQueue.Infrastructure.Entities.Role},Microsoft.AspNetCore.Identity.SignInManager{EmbraceQueue.Infrastructure.Entities.User},Microsoft.Extensions.Options.IOptionsSnapshot{EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings})">
+            <summary>
+            Identity Service default constructor
+            </summary>
+            <param name="userManager"></param>
+            <param name="roleManager"></param>
+            <param name="signInManager"></param>
+            <param name="jwtSettings"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.IdentityService.LoginAsync(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Login an existing user
+            </summary>
+            <param name="email"></param>
+            <param name="password"></param>
+            <param name="isPersistent"></param>
+            <param name="lockoutOnFailure"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.Interfaces.IIdentityService">
+            <summary>
+            Identity service interface
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.Interfaces.IIdentityService.LoginAsync(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Login an existing user
+            </summary>
+            <param name="email"></param>
+            <param name="password"></param>
+            <param name="isPersistent"></param>
+            <param name="lockoutOnFailure"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.Interfaces.IWorkContext">
+            <summary>
+            Work context interface
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.Interfaces.IWorkContext.GetCurrentUserAsync">
+            <summary>
+            Gets current user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat">
+            <summary>
+            Custom jwt data formater
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat.#ctor(System.String,Microsoft.IdentityModel.Tokens.TokenValidationParameters)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="algorithm"></param>
+            <param name="validationParameters"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat.Unprotect(System.String)">
+            <summary>
+            Unproctected
+            </summary>
+            <param name="protectedText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat.Unprotect(System.String,System.String)">
+            <summary>
+            Unproctected
+            </summary>
+            <param name="protectedText"></param>
+            <param name="purpose"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat.Protect(Microsoft.AspNetCore.Authentication.AuthenticationTicket)">
+            <summary>
+            Protect
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat.Protect(Microsoft.AspNetCore.Authentication.AuthenticationTicket,System.String)">
+            <summary>
+            Protect
+            </summary>
+            <param name="data"></param>
+            <param name="purpose"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings">
+            <summary>
+            JwtSettings
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.IsEnable">
+            <summary>
+            IsEnable
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.SecretKey">
+            <summary>
+            SecretKey
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.Issuer">
+            <summary>
+            Issuer
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.Audience">
+            <summary>
+            Audience
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.TokenPath">
+            <summary>
+            TokenPath
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.CookieName">
+            <summary>
+            CookieName
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.TokenLifetime">
+            <summary>
+            TokenLifetime
+            </summary>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderMiddleware">
+            <summary>
+            TokenProviderMiddleware
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions{EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            TokenProviderMiddleware Constructor
+            </summary>
+            <param name="next"></param>
+            <param name="options"></param>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext,EmbraceQueue.API.IdentityService.Interfaces.IIdentityService)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="_identityService"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions">
+            <summary>
+            Token options provider
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.TokenPath">
+            <summary>
+            The relative request path to listen on.
+            </summary>
+            <remarks>The default path is <c>/token</c>.</remarks>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.Issuer">
+            <summary>
+             The Issuer (iss) claim for generated tokens.
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.Audience">
+            <summary>
+            The Audience (aud) claim for the generated tokens.
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.Expiration">
+            <summary>
+            The expiration time for the generated tokens.
+            </summary>
+            <remarks>The default is five minutes (300 seconds).</remarks>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.SigningCredentials">
+            <summary>
+            The signing key to use when generating tokens.
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.NonceGenerator">
+            <summary>
+            Generates a random value (nonce) for each generated token.
+            </summary>
+            <remarks>The default nonce is a random GUID.</remarks>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.Responses.AuthResult">
+            <summary>
+            Auth result
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.Responses.AuthResult.Payload">
+            <summary>
+            Payload
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.Responses.AuthResult.Success">
+            <summary>
+            Success
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.Responses.AuthResult.Errors">
+            <summary>
+            Errors
+            </summary>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.Responses.AuthSuccessResponse">
+            <summary>
+            Auth success response
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.Responses.AuthSuccessResponse.AccessToken">
+            <summary>
+            Access token
+            </summary>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.WorkContext">
+            <summary>
+            Work context
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.WorkContext.#ctor(Microsoft.AspNetCore.Identity.UserManager{EmbraceQueue.Infrastructure.Entities.User},Microsoft.AspNetCore.Http.IHttpContextAccessor,EmbraceQueue.Infrastructure.Repositories.Interfaces.IUserRepository)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="userManager"></param>
+            <param name="contextAccessor"></param>
+            <param name="userRepository"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.WorkContext.GetCurrentUserAsync">
+            <summary>
+            Get current user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.Program">
+            <summary>
+            Entry point of the application
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.Program.Main(System.String[])">
+            <summary>
+            Main method
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creating hosts
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.Startup">
+            <summary>
+            Startup auth
+            </summary>
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="F:EmbraceQueue.API.Startup._tokenProviderOptions">
+            <summary>
+            The token options
+            </summary>
+        </member>
+        <member name="F:EmbraceQueue.API.Startup._app">
+            <summary>
+            The SignInManager
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.Startup.ConfigureAuth(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Initializes a new instance 
+            </summary>
+        </member>
+        <member name="F:EmbraceQueue.API.Startup._jwtSettings">
+            <summary>
+            Gets the Jwt Settings.
+            </summary>
+            <value>The hosting environment.</value>
+        </member>
+        <member name="F:EmbraceQueue.API.Startup._configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:EmbraceQueue.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup constructor
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure service
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            Configure
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="provider"></param>
+        </member>
+        <member name="T:EmbraceQueue.API.SwaggerConfigurations.ConfigureSwaggerOptions">
+            <summary>
+            Configures the Swagger generation options.
+            </summary>
+            <remarks>This allows API versioning to define a Swagger document per API version after the
+            <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider"/> service has been resolved from the service container.</remarks>
+        </member>
+        <member name="M:EmbraceQueue.API.SwaggerConfigurations.ConfigureSwaggerOptions.#ctor(Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmbraceQueue.API.SwaggerConfigurations.ConfigureSwaggerOptions"/> class.
+            </summary>
+            <param name="provider">The <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider">provider</see> used to generate Swagger documents.</param>
+        </member>
+        <member name="M:EmbraceQueue.API.SwaggerConfigurations.ConfigureSwaggerOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:EmbraceQueue.API.SwaggerConfigurations.RemoveVersionOperationFilter">
+            <summary>
+            An operation filter removing version from parameters
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.SwaggerConfigurations.RemoveVersionOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Applies specific filter to remove version from parameters
+            </summary>
+            <param name="operation"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:EmbraceQueue.API.SwaggerConfigurations.ReplaceVersionDocumentFilter">
+            <summary>
+            A document filter replacing v{version:apiVersion} with the real version of the corresponding swagger doc
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.SwaggerConfigurations.ReplaceVersionDocumentFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            Applies specific filter to change version parameter with current swagger doc version
+            </summary>
+            <param name="swaggerDoc"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.AccountController">
+            <summary>
+            Provides account operations like (Login, Register and Logout)
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{EmbraceQueue.Infrastructure.Entities.User},Microsoft.AspNetCore.Identity.SignInManager{EmbraceQueue.Infrastructure.Entities.User},EmbraceQueue.API.IdentityService.Interfaces.IIdentityService,EmbraceQueue.API.IdentityService.Interfaces.IWorkContext,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Default Account Controller constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.Register(EmbraceQueue.Domain.Dtos.Accounts.RegisterDto)">
+            <summary>
+            Register a new user
+            </summary>
+            <param name="registerDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.Login(EmbraceQueue.Domain.Dtos.Accounts.LoginDto)">
+            <summary>
+            Login an existing user
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.LogOut">
+            <summary>
+            Logout an existing user
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.GetAllUsers">
+            <summary>
+            Get all users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.FindSingleUser(System.String)">
+            <summary>
+            Get a single user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.AddUser(EmbraceQueue.Domain.Dtos.Accounts.CreateUserDto)">
+            <summary>
+            Create a new user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.UpdateUser(System.String,EmbraceQueue.Domain.Dtos.Accounts.UpdateUserDto)">
+            <summary>
+            Create a new user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.DeleteUser(System.String)">
+            <summary>
+            Delete user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.ApiController">
+            <summary>
+            Base controller, used for setting common attributes
+            </summary>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.BranchesController">
+            <summary>
+            Provides Branches Operations
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.BranchesController.#ctor(EmbraceQueue.Application.Services.Interfaces.IBranchService,EmbraceQueue.Application.Services.Interfaces.ICompanyService)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.BranchesController.GetBranches">
+            <summary>
+            Get all existing branches
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.BranchesController.FindBranchById(System.Int32)">
+            <summary>
+            Find an existing branch by provided branch id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.BranchesController.FindBranchesById(System.Int32)">
+            <summary>
+            Find all existing branches by provided id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.BranchesController.CreateBranch(EmbraceQueue.Domain.Dtos.Branches.CreateBranchDto)">
+            <summary>
+            Create a new branch
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.BranchesController.UpdateBranch(System.Int32,EmbraceQueue.Domain.Dtos.Branches.UpdateBranchDto)">
+            <summary>
+            Update an existing branch
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.BranchesController.DeleteBranch(System.Int32)">
+            <summary>
+            Delete an existing branch
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.CategoriesController">
+            <summary>
+            Provides Categories Operations
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CategoriesController.#ctor(EmbraceQueue.Application.Services.Interfaces.ICategoryService)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CategoriesController.GetCategories">
+            <summary>
+            Get all existing categories
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CategoriesController.FindCategoryById(System.Int32)">
+            <summary>
+            Find an existing category by provided category id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CategoriesController.FindCategoriesById(System.Int32)">
+            <summary>
+            Find all existing categories by provided id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CategoriesController.CreateCategory(EmbraceQueue.Domain.Dtos.Categories.CreateCategoryDto)">
+            <summary>
+            Create a new category
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CategoriesController.UpdateCategory(System.Int32,EmbraceQueue.Domain.Dtos.Categories.UpdateCategoryDto)">
+            <summary>
+            Update an existing category
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CategoriesController.DeleteCategory(System.Int32)">
+            <summary>
+            Delete an existing category
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.CompaniesController">
+            <summary>
+            Provides Company Operations
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CompaniesController.#ctor(EmbraceQueue.Application.Services.Interfaces.ICompanyService,EmbraceQueue.Application.Services.Interfaces.ICategoryService)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CompaniesController.GetCompanies">
+            <summary>
+            Get all existing companies
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CompaniesController.FindCompanyById(System.Int32)">
+            <summary>
+            Find an existing company by provided company id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CompaniesController.FindCompaniesById(System.Int32)">
+            <summary>
+            Find all existing companies by provided id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CompaniesController.CreateCompany(EmbraceQueue.Domain.Dtos.Companies.CreateCompanyDto)">
+            <summary>
+            Create a new company
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CompaniesController.UpdateCompany(System.Int32,EmbraceQueue.Domain.Dtos.Companies.UpdateCompanyDto)">
+            <summary>
+            Update an existing company
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CompaniesController.DeleteCompany(System.Int32)">
+            <summary>
+            Delete an existing company
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.CustomersController">
+            <summary>
+            Provides Customer  Operations
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CustomersController.#ctor(EmbraceQueue.Application.Services.Interfaces.ICustomerService,EmbraceQueue.Application.Services.Interfaces.IDigitalTicketService,EmbraceQueue.Application.Services.Interfaces.IServiceLineService)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CustomersController.GetCustomers">
+            <summary>
+            Get all existing customers
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CustomersController.FindCustomerById(System.Int32)">
+            <summary>
+            Find an existing customer by provided customer id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CustomersController.FindCustomersById(System.Int32)">
+            <summary>
+            Find all existing customers by provided id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CustomersController.CreateCustomer(EmbraceQueue.Domain.Dtos.Customers.CreateCustomerDto)">
+            <summary>
+            Create a new customer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CustomersController.UpdateCustomer(System.Int32,EmbraceQueue.Domain.Dtos.Customers.UpdateCustomerDto)">
+            <summary>
+            Update an existing customer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CustomersController.DeleteCustomer(System.Int32)">
+            <summary>
+            Delete an existing customer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.DigitalTicketsController">
+            <summary>
+            Provides Digital ticket Operations
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.DigitalTicketsController.#ctor(EmbraceQueue.Application.Services.Interfaces.IDigitalTicketService,EmbraceQueue.Application.Services.Interfaces.ICompanyService)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.DigitalTicketsController.GetDigitalTickets">
+            <summary>
+            Get all existing Digital tickets
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.DigitalTicketsController.FindDigitalTicketById(System.Int32)">
+            <summary>
+            Find an existing digital ticket by provided digital ticket id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.DigitalTicketsController.FindDigitalTicketsById(System.Int32)">
+            <summary>
+            Find all existing digital tickets by provided id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.DigitalTicketsController.CreateDigitalTicket(EmbraceQueue.Domain.Dtos.DigitalTickets.CreateDigitalTicketDto)">
+            <summary>
+            Create a new digital ticket
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.DigitalTicketsController.UpdateDigitalTicket(System.Int32,EmbraceQueue.Domain.Dtos.DigitalTickets.UpdateDigitalTicketDto)">
+            <summary>
+            Update an existing digital ticket
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.DigitalTicketsController.DeleteDigitalTicket(System.Int32)">
+            <summary>
+            Delete an existing digital ticket
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.LocationsController">
+            <summary>
+            Provides Location Operations
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.LocationsController.#ctor(EmbraceQueue.Application.Services.Interfaces.ILocationService,EmbraceQueue.Application.Services.Interfaces.IBranchService)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.LocationsController.GetLocations">
+            <summary>
+            Get all existing locations
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.LocationsController.FindLocationById(System.Int32)">
+            <summary>
+            Find an existing location by provided location id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.LocationsController.FindLocationsById(System.Int32)">
+            <summary>
+            Find all existing locations by provided id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.LocationsController.CreateLocation(EmbraceQueue.Domain.Dtos.Locations.CreateLocationDto)">
+            <summary>
+            Create a new location
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.LocationsController.UpdateLocation(System.Int32,EmbraceQueue.Domain.Dtos.Locations.UpdateLocationDto)">
+            <summary>
+            Update an existing location
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.LocationsController.DeleteLocation(System.Int32)">
+            <summary>
+            Delete an existing locaiton
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.ServiceLinesController">
+            <summary>
+            Provides Service lines Operations
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServiceLinesController.#ctor(EmbraceQueue.Application.Services.Interfaces.IServiceLineService,EmbraceQueue.Application.Services.Interfaces.IBranchService)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServiceLinesController.GetServiceLines">
+            <summary>
+            Get all existing service lines
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServiceLinesController.FindServiceLineById(System.Int32)">
+            <summary>
+            Find an existing service line by provided service line id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServiceLinesController.FindServiceLinesById(System.Int32)">
+            <summary>
+            Find all existing service lines by provided id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServiceLinesController.CreateServiceLine(EmbraceQueue.Domain.Dtos.ServiceLines.CreateServiceLineDto)">
+            <summary>
+            Create a new service line
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServiceLinesController.UpdateServiceLine(System.Int32,EmbraceQueue.Domain.Dtos.ServiceLines.UpdateServiceLineDto)">
+            <summary>
+            Update an existing service line
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServiceLinesController.DeleteServiceLine(System.Int32)">
+            <summary>
+            Delete an existing locaiton
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.ServicesController">
+            <summary>
+            Provides Service Operations
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesController.#ctor(EmbraceQueue.Application.Services.Interfaces.IServiceService,EmbraceQueue.Application.Services.Interfaces.ICompanyService)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesController.GetServices">
+            <summary>
+            Get all existing services
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesController.FindServiceById(System.Int32)">
+            <summary>
+            Find an existing service by provided service id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesController.FindServicesById(System.Int32)">
+            <summary>
+            Find all existing services by provided id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesController.CreateService(EmbraceQueue.Domain.Dtos.Services.CreateServiceDto)">
+            <summary>
+            Create a new service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesController.UpdateService(System.Int32,EmbraceQueue.Domain.Dtos.Services.UpdateServiceDto)">
+            <summary>
+            Update an existing service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesController.DeleteService(System.Int32)">
+            <summary>
+            Delete an existing service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.ServicesServiceLinesController">
+            <summary>
+            Provides Services service line Operations
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesServiceLinesController.#ctor(EmbraceQueue.Application.Services.Interfaces.IServicesServiceLineService)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesServiceLinesController.GetAllServices">
+            <summary>
+            Get all existing services service lines
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesServiceLinesController.FindServicesByServiceId(System.Int32)">
+            <summary>
+            Get all existing services service lines by service id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesServiceLinesController.FindServicesByServiceLineId(System.Int32)">
+            <summary>
+            Get all existing services service lines by service line id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesServiceLinesController.FindServiceByServiceLineIdAndServiceId(System.Int32,System.Int32)">
+            <summary>
+            Get all existing services service lines by service line id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesServiceLinesController.CreateServicesServiceLine(EmbraceQueue.Domain.Dtos.ServicesServiceLines.ServicesServiceLineDto)">
+            <summary>
+            Create a new services service line
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.ServicesServiceLinesController.DeleteServicesServiceLine(System.Int32,System.Int32)">
+            <summary>
+            Delete an existing services service line
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.WorkingDayController">
+            <summary>
+            Provides Working Day Operations
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.WorkingDayController.#ctor(EmbraceQueue.Application.Services.Interfaces.IWorkingDayService,EmbraceQueue.Application.Services.Interfaces.IBranchService)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.WorkingDayController.GeWorkingDays">
+            <summary>
+            Get all existing working days
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.WorkingDayController.FindWorkingDayById(System.Int32)">
+            <summary>
+            Find an existing working day by provided working day id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.WorkingDayController.FindWorkingDaysById(System.Int32)">
+            <summary>
+            Find all existing working days by provided id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.WorkingDayController.CreateWorkingDay(EmbraceQueue.Domain.Dtos.WorkingDays.CreateWorkingDayDto)">
+            <summary>
+            Create a new working day
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.WorkingDayController.UpdateWorkingDay(System.Int32,EmbraceQueue.Domain.Dtos.WorkingDays.UpdateWorkingDayDto)">
+            <summary>
+            Update an existing working day
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.WorkingDayController.DeleteWorkingDay(System.Int32)">
+            <summary>
+            Delete an existing working day
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EmbraceQueue.API</name>
+    </assembly>
+    <members>
+        <member name="T:EmbraceQueue.API.DependencyInjection">
+            <summary>
+            Dependecy injection for API
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.DependencyInjection.AddCustomizedIdentity(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings)">
+            <summary>
+            Customized identity
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <param name="jwtSettings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.DependencyInjection.AddCustomizedDataStore(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Customized data store
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.DependencyInjection.UseCustomizedIdentity(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            UseCustomizedIdentity
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.IdentityService">
+            <summary>
+            Identity service
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.IdentityService.#ctor(Microsoft.AspNetCore.Identity.UserManager{EmbraceQueue.Infrastructure.Entities.User},Microsoft.AspNetCore.Identity.RoleManager{EmbraceQueue.Infrastructure.Entities.Role},Microsoft.AspNetCore.Identity.SignInManager{EmbraceQueue.Infrastructure.Entities.User},Microsoft.Extensions.Options.IOptionsSnapshot{EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings})">
+            <summary>
+            Identity Service default constructor
+            </summary>
+            <param name="userManager"></param>
+            <param name="roleManager"></param>
+            <param name="signInManager"></param>
+            <param name="jwtSettings"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.IdentityService.LoginAsync(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Login an existing user
+            </summary>
+            <param name="email"></param>
+            <param name="password"></param>
+            <param name="isPersistent"></param>
+            <param name="lockoutOnFailure"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.Interfaces.IIdentityService">
+            <summary>
+            Identity service interface
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.Interfaces.IIdentityService.LoginAsync(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Login an existing user
+            </summary>
+            <param name="email"></param>
+            <param name="password"></param>
+            <param name="isPersistent"></param>
+            <param name="lockoutOnFailure"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat">
+            <summary>
+            Custom jwt data formater
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat.#ctor(System.String,Microsoft.IdentityModel.Tokens.TokenValidationParameters)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="algorithm"></param>
+            <param name="validationParameters"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat.Unprotect(System.String)">
+            <summary>
+            Unproctected
+            </summary>
+            <param name="protectedText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat.Unprotect(System.String,System.String)">
+            <summary>
+            Unproctected
+            </summary>
+            <param name="protectedText"></param>
+            <param name="purpose"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat.Protect(Microsoft.AspNetCore.Authentication.AuthenticationTicket)">
+            <summary>
+            Protect
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.CustomJwtDataFormat.Protect(Microsoft.AspNetCore.Authentication.AuthenticationTicket,System.String)">
+            <summary>
+            Protect
+            </summary>
+            <param name="data"></param>
+            <param name="purpose"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings">
+            <summary>
+            JwtSettings
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.IsEnable">
+            <summary>
+            IsEnable
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.SecretKey">
+            <summary>
+            SecretKey
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.Issuer">
+            <summary>
+            Issuer
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.Audience">
+            <summary>
+            Audience
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.TokenPath">
+            <summary>
+            TokenPath
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.CookieName">
+            <summary>
+            CookieName
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.JwtSettings.TokenLifetime">
+            <summary>
+            TokenLifetime
+            </summary>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderMiddleware">
+            <summary>
+            TokenProviderMiddleware
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions{EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            TokenProviderMiddleware Constructor
+            </summary>
+            <param name="next"></param>
+            <param name="options"></param>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext,EmbraceQueue.API.IdentityService.Interfaces.IIdentityService)">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="_identityService"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions">
+            <summary>
+            Token options provider
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.TokenPath">
+            <summary>
+            The relative request path to listen on.
+            </summary>
+            <remarks>The default path is <c>/token</c>.</remarks>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.Issuer">
+            <summary>
+             The Issuer (iss) claim for generated tokens.
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.Audience">
+            <summary>
+            The Audience (aud) claim for the generated tokens.
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.Expiration">
+            <summary>
+            The expiration time for the generated tokens.
+            </summary>
+            <remarks>The default is five minutes (300 seconds).</remarks>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.SigningCredentials">
+            <summary>
+            The signing key to use when generating tokens.
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.JwtBearer.TokenProviderOptions.NonceGenerator">
+            <summary>
+            Generates a random value (nonce) for each generated token.
+            </summary>
+            <remarks>The default nonce is a random GUID.</remarks>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.Responses.AuthResult">
+            <summary>
+            Auth result
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.Responses.AuthResult.Payload">
+            <summary>
+            Payload
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.Responses.AuthResult.Success">
+            <summary>
+            Success
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.Responses.AuthResult.Errors">
+            <summary>
+            Errors
+            </summary>
+        </member>
+        <member name="T:EmbraceQueue.API.IdentityService.Responses.AuthSuccessResponse">
+            <summary>
+            Auth success response
+            </summary>
+        </member>
+        <member name="P:EmbraceQueue.API.IdentityService.Responses.AuthSuccessResponse.AccessToken">
+            <summary>
+            Access token
+            </summary>
+        </member>
+        <member name="T:EmbraceQueue.API.Program">
+            <summary>
+            Entry point of the application
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.Program.Main(System.String[])">
+            <summary>
+            Main method
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creating hosts
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbraceQueue.API.Startup">
+            <summary>
+            Startup auth
+            </summary>
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="F:EmbraceQueue.API.Startup._tokenProviderOptions">
+            <summary>
+            The token options
+            </summary>
+        </member>
+        <member name="F:EmbraceQueue.API.Startup._app">
+            <summary>
+            The SignInManager
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.Startup.ConfigureAuth(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Initializes a new instance 
+            </summary>
+        </member>
+        <member name="F:EmbraceQueue.API.Startup._jwtSettings">
+            <summary>
+            Gets the Jwt Settings.
+            </summary>
+            <value>The hosting environment.</value>
+        </member>
+        <member name="F:EmbraceQueue.API.Startup._configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:EmbraceQueue.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup constructor
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure service
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:EmbraceQueue.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            Configure
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="provider"></param>
+        </member>
+        <member name="T:EmbraceQueue.API.SwaggerConfigurations.ConfigureSwaggerOptions">
+            <summary>
+            Configures the Swagger generation options.
+            </summary>
+            <remarks>This allows API versioning to define a Swagger document per API version after the
+            <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider"/> service has been resolved from the service container.</remarks>
+        </member>
+        <member name="M:EmbraceQueue.API.SwaggerConfigurations.ConfigureSwaggerOptions.#ctor(Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmbraceQueue.API.SwaggerConfigurations.ConfigureSwaggerOptions"/> class.
+            </summary>
+            <param name="provider">The <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider">provider</see> used to generate Swagger documents.</param>
+        </member>
+        <member name="M:EmbraceQueue.API.SwaggerConfigurations.ConfigureSwaggerOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:EmbraceQueue.API.SwaggerConfigurations.RemoveVersionOperationFilter">
+            <summary>
+            An operation filter removing version from parameters
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.SwaggerConfigurations.RemoveVersionOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Applies specific filter to remove version from parameters
+            </summary>
+            <param name="operation"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:EmbraceQueue.API.SwaggerConfigurations.ReplaceVersionDocumentFilter">
+            <summary>
+            A document filter replacing v{version:apiVersion} with the real version of the corresponding swagger doc
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.SwaggerConfigurations.ReplaceVersionDocumentFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            Applies specific filter to change version parameter with current swagger doc version
+            </summary>
+            <param name="swaggerDoc"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.AccountController">
+            <summary>
+            Provides account operations like (Login, Register and Logout)
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{EmbraceQueue.Infrastructure.Entities.User},Microsoft.AspNetCore.Identity.SignInManager{EmbraceQueue.Infrastructure.Entities.User},EmbraceQueue.API.IdentityService.Interfaces.IIdentityService,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Default Account Controller constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.Register(EmbraceQueue.Domain.Dtos.Account.RegisterDto)">
+            <summary>
+            Register a new user
+            </summary>
+            <param name="registerDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.Login(EmbraceQueue.Domain.Dtos.Account.LoginDto)">
+            <summary>
+            Sign in an existing user
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.AccountController.LogOut">
+            <summary>
+            Logout an existing user
+            </summary>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.ApiController">
+            <summary>
+            Base controller, used for setting common attributes
+            </summary>
+        </member>
+        <member name="T:EmbraceQueue.API.V1.Controllers.CategoriesController">
+            <summary>
+            Provides Categories Operations
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CategoriesController.#ctor(EmbraceQueue.Application.Services.Interfaces.ICategoryService)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EmbraceQueue.API.V1.Controllers.CategoriesController.GetCategories">
+            <summary>
+            Get all existing categories
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
